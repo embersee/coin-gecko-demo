@@ -10,7 +10,7 @@ export async function getMarketData<T>(): Promise<FetchResult<T>> {
   const url = CoinGeckoURL("markets");
   url.searchParams.append("vs_currency", "usd");
   url.searchParams.append("order", "market_cap_desc");
-  url.searchParams.append("per_page", "10");
+  url.searchParams.append("per_page", "14");
   url.searchParams.append("page", "1");
   url.searchParams.append("sparkline", "false");
 
@@ -23,7 +23,8 @@ export async function getMarketData<T>(): Promise<FetchResult<T>> {
     });
 
     if (!res.ok) {
-      throw new Error(`Network response was not ok: ${res.statusText}`);
+      console.error(`Network response was not ok: ${res.statusText}`);
+      return { success: false, error: "BAD JSON FORMATTING FROM COINGECKO" };
     }
 
     const data = await res.json();

@@ -14,7 +14,7 @@ export async function GET(req: Request) {
           const { data, success, error } = await getMarketData<Coin[]>();
 
           if (!success || data == undefined) {
-            throw new Error(error || "Unknown error");
+            return;
           }
           const message = `data: ${JSON.stringify(data)}\n\n`;
           controller.enqueue(message);

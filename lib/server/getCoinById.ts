@@ -19,11 +19,8 @@ export async function getCoinById<T>(id: string): Promise<FetchResult<T>> {
     });
 
     if (!res.ok) {
-      throw new Error(`Network response was not ok: ${res.statusText}`);
-    }
-
-    if (!res.ok) {
-      throw new Error(`Network response was not ok: ${res.statusText}`);
+      console.error(`Network response was not ok: ${res.statusText}`);
+      return { success: false, error: "BAD JSON FORMATTING FROM COINGECKO" };
     }
 
     const data = await res.json();

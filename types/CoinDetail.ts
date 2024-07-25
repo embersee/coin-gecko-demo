@@ -14,6 +14,14 @@ export interface CoinDetail {
     current_price: {
       usd: number;
     };
+    market_cap: {
+      usd: number;
+    };
+    high_24h: {
+      usd: number;
+    };
+    total_supply: number;
+
     sparkline_7d: {
       price: Array<number>;
     };

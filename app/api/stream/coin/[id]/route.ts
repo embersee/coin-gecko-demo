@@ -28,7 +28,7 @@ export async function GET(
           const { data, success, error } = await getCoinById<CoinDetail>(id);
 
           if (!success || data == undefined) {
-            throw new Error(error || "Unknown error");
+            return;
           }
 
           const message = `data: ${JSON.stringify(data)}\n\n`;

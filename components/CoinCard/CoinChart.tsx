@@ -17,8 +17,8 @@ export default function CoinChart({ price }: { price: number[] }) {
   const chartData = calculateDailyPrices(price);
 
   return (
-    <ChartContainer config={chartConfig}>
-      <LineChart width={500} height={400} data={chartData}>
+    <ChartContainer config={chartConfig} className="h-ful w-full max-h-[700px]">
+      <LineChart width={600} height={200} data={chartData}>
         <CartesianGrid strokeDasharray="3 3" />
         <YAxis
           dataKey="price"
@@ -29,7 +29,13 @@ export default function CoinChart({ price }: { price: number[] }) {
           cursor={false}
           content={<ChartTooltipContent hideLabel />}
         />
-        <Line type="monotone" dataKey="price" strokeWidth={2} dot={false} />
+        <Line
+          type="monotone"
+          dataKey="price"
+          color="#646cff"
+          strokeWidth={2}
+          dot={false}
+        />
       </LineChart>
     </ChartContainer>
   );

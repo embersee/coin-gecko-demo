@@ -9,7 +9,10 @@ export default async function CoinPage({ params }: { params: { id: string } }) {
     error,
   } = await getCoinById<CoinDetail>(params.id);
 
-  if (!success || !coin || error) return <h1>Error: ${error}</h1>;
+  if (!success && !coin && error)
+    return <h1>Please reload the page, an error occured</h1>;
+
+  if (!coin) return <></>;
 
   return <CoinDetails coin={coin} />;
 }
