@@ -21,6 +21,7 @@ COIN_GECKO_API=
 To start the app, run:
 ```bash
 npm run dev
+or for better performance -> npm run build + npm run start
 ```
 ---
 
